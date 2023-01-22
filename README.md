@@ -23,3 +23,5 @@ With the rapid development of autonomous driving systems (ADSs), testing ADSs un
 
 ![image](https://github.com/Simula-COMPLEX/DeepScenario/blob/main/figures/dataset-generation-overview.png)
 
+## Maintainers
+[@ChengjieLu](https://github.com/chengjie-lu)
