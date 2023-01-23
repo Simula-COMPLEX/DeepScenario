@@ -24,7 +24,7 @@ pip3 install --user .
 pip3 install --user -e .
 ```
 
-# Usgae
+# Usage
 
 *DeepScenario toolsets* is an extension of *[PythonAPI](https://github.com/lgsvl/PythonAPI)* developed by *[SVLSimulator](https://www.svlsimulator.com/)*, for how to use normal functionality of the APIs, please refer [here](https://www.svlsimulator.com/docs/python-api/python-api/).
 Examples of usage of our toolsets can be found [here](https://github.com/Simula-COMPLEX/DeepScenario/blob/main/deepscenario-toolset/tests/test_scenariotoolset.py). We describe several examples of using *ScenarioCollector* and *ScenarioRunner* as follows.
