@@ -14,6 +14,8 @@ This repoisitory contains:
   - [Dataset Structure](#dataset-structure)
   - [Fields in Scenario Attribute Files](#fields-in-scenario-attribute-files)
 - [DeepScenario Toolsets](#deepscenario-toolsets)
+  - [Installation](#installation)
+  - [Usage](#usage)
 - [Maintainers](#maintainers)
 <!--
   - [Installation](#installation)
