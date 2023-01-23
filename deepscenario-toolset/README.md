@@ -104,6 +104,226 @@ sc_collector.save_scenario(timestep, './test.deepscenario')
 ```
 
 ## ScenarioRunner
+*ScenarioRunner* can support replaying scenarios by taking scenario files as inputs. In addition to replaying scenarios, *ScenarioRunner* can also be used to check scenario information, like entities information. Finally, *ScenarioRunner* can print scene by *timestep*, which is expected to facilitate further
+analysis and diagnoses of autonomous driving systems. We show the usage of *ScenarioRunner* as follows.
 
+### Usage 1 Get entity information
+Entities includes autonomous vehicles, other vehicles, and pedestrians, which may appear in a driving scenario. Below is how to get information of entities using *ScenarioRunner*.
 
+```python
+runner = lgsvl.scenariotoolset.ScenarioRunner()
+runner.load_scenario_file(scenario_filepath_or_buffer='./deepscenario/rear_end_collision.deepscenario')
+print(runner.get_entities_info())
+```
 
+The information returned is in *json* format, as can be seen below.
+```json
+{
+  "Ego0": {
+    "model": "Sedan",
+    "color": "Default",
+    "type": "Ego",
+    "uid": "470ce96f-3ac6-42c8-a64b-6196a8d235db",
+    "initialization": {
+      "position": {
+        "x": -50.34,
+        "y": -1.036,
+        "z": -9.03
+      },
+      "rotation": {
+        "x": 0.0,
+        "y": 104.823,
+        "z": 0.0
+      },
+      "velocity": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "angular_velocity": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      }
+    }
+  },
+  "NPC0": {
+    "model": "Sedan",
+    "color": "white",
+    "type": "NPC",
+    "uid": "Sedan(Clone)362986ab-a2a8-49d1-aa74-6ec130ebe17a",
+    "initialization": {
+      "position": {
+        "x": -40.673,
+        "y": -1.036,
+        "z": -11.588
+      },
+      "rotation": {
+        "x": 0.0,
+        "y": 104.823,
+        "z": 0.0
+      },
+      "velocity": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "angular_velocity": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      }
+    }
+  },
+  "Pedestrian0": {
+    "model": "Bob",
+    "color": "Default",
+    "type": "Pedestrian",
+    "uid": "0f79fbef-e285-4128-8919-417fa0588f01",
+    "initialization": {
+      "position": {
+        "x": -2.004,
+        "y": -1.036,
+        "z": -21.822
+      },
+      "rotation": {
+        "x": 0.0,
+        "y": 104.823,
+        "z": 0.0
+      },
+      "velocity": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "angular_velocity": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      }
+    }
+  }
+}
+```
+
+### Usage 1 Get driving scene by timestep
+A driving scene describes snapshots of the environment’s state without involving sufficient time series information, we can get a driving scene by a specific timestep using *ScenarioRunner*.
+
+```python
+runner = lgsvl.scenariotoolset.ScenarioRunner()
+runner.load_scenario_file(scenario_filepath_or_buffer='./deepscenario/rear_end_collision.deepscenario')
+print(runner.get_scene_by_timestep(timestep=21))
+```
+
+The returned driving scene is shown as follows.
+
+```json
+{
+  "timestep": 21,
+  "Ego0": {
+    "dynamic_parameters": {
+      "speed": "16.865",
+      "velocity": {
+        "x": "16.305",
+        "y": "-0.24",
+        "z": "-4.301"
+      },
+      "angular_velocity": {
+        "x": "0.002",
+        "y": "-0.002",
+        "z": "0.031"
+      }
+    },
+    "geographic_parameters": {
+      "position": {
+        "x": "-22.151",
+        "y": "-1.846",
+        "z": "-16.493"
+      },
+      "rotation": {
+        "x": "0.687",
+        "y": "104.746",
+        "z": "359.769"
+      },
+      "gps": {
+        "altitude": "-1.846",
+        "easting": "587053.507",
+        "latitude": "37.417",
+        "longitude": "-122.016",
+        "northing": "4141599.151",
+        "orientation": "-104.746"
+      }
+    }
+  },
+  "NPC0": {
+    "dynamic_parameters": {
+      "speed": "12.0",
+      "velocity": {
+        "x": "11.598",
+        "y": "-0.25",
+        "z": "-3.069"
+      },
+      "angular_velocity": {
+        "x": "0",
+        "y": "0",
+        "z": "0"
+      }
+    },
+    "geographic_parameters": {
+      "position": {
+        "x": "7.661",
+        "y": "-2.23",
+        "z": "-24.38"
+      },
+      "rotation": {
+        "x": "0.0",
+        "y": "104.823",
+        "z": "-0.0"
+      },
+      "gps": {
+        "altitude": "-2.23",
+        "easting": "587045.62",
+        "latitude": "37.417",
+        "longitude": "-122.016",
+        "northing": "4141569.339",
+        "orientation": "-104.823"
+      }
+    }
+  },
+  "Pedestrian0": {
+    "dynamic_parameters": {
+      "speed": "0.0",
+      "velocity": {
+        "x": "0",
+        "y": "0",
+        "z": "0"
+      },
+      "angular_velocity": {
+        "x": "0",
+        "y": "0",
+        "z": "0"
+      }
+    },
+    "geographic_parameters": {
+      "position": {
+        "x": "1.665",
+        "y": "-2.084",
+        "z": "-20.263"
+      },
+      "rotation": {
+        "x": "0",
+        "y": "65.925",
+        "z": "0"
+      },
+      "gps": {
+        "altitude": "-2.084",
+        "easting": "587049.737",
+        "latitude": "37.417",
+        "longitude": "-122.016",
+        "northing": "4141575.335",
+        "orientation": "-65.925"
+      }
+    }
+  }
+}
+```
