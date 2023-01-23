@@ -206,7 +206,7 @@ The information returned is in *json* format, as can be seen below.
 }
 ```
 
-### Usage 1 Get driving scene by timestep
+### Usage 2 Get driving scene by timestep
 A driving scene describes snapshots of the environment’s state without involving sufficient time series information, we can get a driving scene by a specific timestep using *ScenarioRunner*.
 
 ```python
@@ -327,3 +327,18 @@ The returned driving scene is shown as follows.
   }
 }
 ```
+
+### Usage 3 Replay driving scenario without ADSs
+*ScenarioRunner* can exactly replay the behaviors of the autonomous vehicle and obstacles by reading their kinetic parameters. By selecting and replaying driving scenarios in this way, *ScenarioRunner* can facilitate further analysis and diagnoses.
+
+```python
+runner = lgsvl.scenariotoolset.ScenarioRunner()
+runner.load_scenario_file(scenario_filepath_or_buffer='./deepscenario/rear_end_collision.deepscenario')
+runner.connect_simulator_ads(simulator_port=8181, bridge_port=9090)
+
+runner.run(mode=0) # mode=0: disable ADSs; mode=1: enable ADSs
+```
+
+An running example of replaying scenarios in this mode is avaliable [here]().
+
+### Usage 3 Replay driving scenario with ADSs
