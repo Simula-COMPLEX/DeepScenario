@@ -134,7 +134,7 @@ The toolsets have been tested on *[SVLSimulator Version 2021.1](https://github.c
 To view the requirement and installation procedure for running the toolset, please look at [toolset-installation](https://github.com/Simula-COMPLEX/DeepScenario/tree/main/deepscenario-toolset#requirements).
 
 ### Usage
-To see detailed instructions of using *ScenarioCollector* and *ScenarioRunner*, please look at [toolset-usage](https://github.com/simplexity-lab/DeepCollision/tree/main/rest-api).
+To see detailed instructions of using *ScenarioCollector* and *ScenarioRunner*, please look at [toolset-usage](https://github.com/Simula-COMPLEX/DeepScenario/tree/main/deepscenario-toolset#usage).
 
 <!-- 
 Also, we provide a [running-example](https://www.bilibili.com/video/BV1DY411W7Vo/) on Bilibili.
