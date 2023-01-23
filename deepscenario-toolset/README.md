@@ -100,7 +100,7 @@ for i in range(10):
     sc_collector.create_story_by_timestamp(i + 1, agents, sim)
     sim.run(timestep)
     
-sc_collector.save_scenario(timestep, './test.deepscenario')
+sc_collector.save_scenario(timestep, './deepscenario/npc-follow-the-lane.deepscenario')
 ```
 
 ## ScenarioRunner
