@@ -136,7 +136,9 @@ To view the requirement and installation procedure for running the toolset, plea
 ### Usage
 To see detailed instructions of using *ScenarioCollector* and *ScenarioRunner*, please look at [toolset-usage](https://github.com/simplexity-lab/DeepCollision/tree/main/rest-api).
 
+<!-- 
 Also, we provide a [running-example](https://www.bilibili.com/video/BV1DY411W7Vo/) on Bilibili.
+-->
 
 <!-- 
 ### Installation
