@@ -9,7 +9,7 @@ This repoisitory contains:
 2. **[deepscenario-toolset](https://github.com/Simula-COMPLEX/DeepScenario/tree/main/deepscenario-toolset)** - The toolset for *DeepScenario* dataset, including *ScenarioCollector* that can automatically collect driving scenarios, and *ScenarioRunner* that can support replaying driving scenarios.
 
 ## Table of Contents
-- [Contributions](#contributions)
+- [Abstract](#abstract)
 - [DeepScenario Dataset Description](#deepscenario-dataset-description)
   - [Dataset Structure](#dataset-structure)
   - [Fields in Scenario Attribute Files](#fields-in-scenario-attribute-files)
@@ -21,7 +21,7 @@ This repoisitory contains:
  -->
 - [Maintainers](#maintainers)
 
-## Contributions
+## Abstract
 With the rapid development of autonomous driving systems (ADSs), testing ADSs under various driving conditions has become a key method to ensure the successful deployment of ADS in the real-world. However, it is impossible to test all the scenarios due to the inherent complexity and uncertainty of ADSs and the driving tasks. Further, testing of ADSs is expensive regarding time and computational resources. Therefore, a large-scale driving scenario dataset consisting of various driving conditions is needed. To this end, we present an open driving scenario dataset *DeepScenario*, containing over 30*K* *executable* driving scenarios, which are collected by 2880 test executions of three driving scenario generation strategies. Specifically, Each strategy was set up with three reward functions, *reward-ttc*, *reward-dto*, and *reward-jerk*. We introduced real-world weather data on four different days (i.e., *rain-day*, *rain-night*, *sunny-day*, and *sunny-night*) to simulate various weather conditions and their changes over time. The test executions were conducted on four different roads (i.e., *road1*, *road2*, *road3*, and *road4*). 
 Each scenario in the dataset is labeled with six attributes characterizing test results. We further show the attribute statistics and distribution of driving scenarios. For example, there are 1050 collision scenarios, in 917 scenarios there were collisions with other vehicles, 105 and 28 with pedestrians and static obstacles, respectively.
 
