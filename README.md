@@ -14,12 +14,12 @@ This repoisitory contains:
   - [Dataset Structure](#dataset-structure)
   - [Fields in Scenario Attribute Files](#fields-in-scenario-attribute-files)
 - [DeepScenario Toolsets](#deepscenario-toolsets)
+- [Maintainers](#maintainers)
 <!--
   - [Installation](#installation)
   - [ScenarioCollector](#scenariocollector)
   - [ScenarioRunner](#scenariorunner)
  -->
-- [Maintainers](#maintainers)
 
 ## Abstract
 With the rapid development of autonomous driving systems (ADSs), testing ADSs under various driving conditions has become a key method to ensure the successful deployment of ADS in the real-world. However, it is impossible to test all the scenarios due to the inherent complexity and uncertainty of ADSs and the driving tasks. Further, testing of ADSs is expensive regarding time and computational resources. Therefore, a large-scale driving scenario dataset consisting of various driving conditions is needed. To this end, we present an open driving scenario dataset *DeepScenario*, containing over 30*K* *executable* driving scenarios, which are collected by 2880 test executions of three driving scenario generation strategies. Specifically, Each strategy was set up with three reward functions, *reward-ttc*, *reward-dto*, and *reward-jerk*. We introduced real-world weather data on four different days (i.e., *rain-day*, *rain-night*, *sunny-day*, and *sunny-night*) to simulate various weather conditions and their changes over time. The test executions were conducted on four different roads (i.e., *road1*, *road2*, *road3*, and *road4*). 
