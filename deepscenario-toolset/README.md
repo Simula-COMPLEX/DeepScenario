@@ -341,4 +341,15 @@ runner.run(mode=0) # mode=0: disable ADSs; mode=1: enable ADSs
 
 An running example of replaying scenarios in this mode is avaliable [here]().
 
-### Usage 3 Replay driving scenario with ADSs
+### Usage 4 Replay driving scenario with ADSs
+*ScenarioRunner* can also integrate different ADSs. In this way, the behaviors of the ego vehicle are not replayed by *ScenarioRunner* but controlled by the ADS, and the behaviors of obstacles can still be accurately replayed. This way enables testing various ADSs by integrating ADSs in the replayed driving conditions.
+
+```python
+runner = lgsvl.scenariotoolset.ScenarioRunner()
+runner.load_scenario_file(scenario_filepath_or_buffer='./deepscenario/rear_end_collision.deepscenario')
+runner.connect_simulator_ads(simulator_port=8181, bridge_port=9090)
+
+runner.run(mode=1) # mode=0: disable ADSs; mode=1: enable ADSs
+```
+
+An running example of replaying scenarios in this mode is avaliable [here]().
