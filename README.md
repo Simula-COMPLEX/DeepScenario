@@ -110,7 +110,7 @@ We show *[./greedy-strategy/reward-dto/road1-rain_day-scenario-attributes.csv](h
 | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
 |       0       | 0_scenario_0|A red BoxTruck is overtaking (near) the ego vehicle and maintaining lane.|100000|24.810964|3.4799999999999995|False|None|0|
 | ... | ... | ... | ... | ... | ... | ... | ... | ... |
-|      18       | 18_scenario_4 |A skyblue SUV is crossing the road (far) and maintaining lane.|100000|1.331153|5.299999999999999|True|pedestrian|2.3469087361531504|
+|      18       | 18_scenario_4_pedestrian |A skyblue SUV is crossing the road (far) and maintaining lane.|100000|1.331153|5.299999999999999|True|pedestrian|2.3469087361531504|
 | ... | ... | ... | ... | ... | ... | ... | ... | ... |
 
 </div>
