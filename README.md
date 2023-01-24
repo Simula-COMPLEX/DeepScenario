@@ -16,6 +16,7 @@ This repoisitory contains:
 - [DeepScenario Toolset](#deepscenario-toolset)
   - [Installation](#installation)
   - [Usage](#usage)
+- [Related Efforts](#related-efforts)
 - [Maintainers](#maintainers)
 <!--
   - [Installation](#installation)
@@ -143,12 +144,8 @@ To view the requirement and installation procedure for running the toolset, plea
 ### Usage
 To see detailed instructions of using *ScenarioCollector* and *ScenarioRunner*, please look at [toolset-usage](https://github.com/Simula-COMPLEX/DeepScenario/blob/main/deepscenario-toolset/README.md#usage).
 
-<!-- 
-### Installation
+## Related Efforts
+**[DeepCollision](https://github.com/simplexity-lab/DeepCollision)** is an open-source environment configuration framework, which generates critical driving scenarios and tests an ADS by configuring its operating environment.
 
-### ScenarioCollector
-
-### ScenarioRunner
--->
 ## Maintainers
 [@ChengjieLu](https://github.com/chengjie-lu)
