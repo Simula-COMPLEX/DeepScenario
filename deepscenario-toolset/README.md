@@ -7,7 +7,7 @@
 # Installation
 
 ## Option 1
-1. Download the *[lastest version](https://github.com/Simula-COMPLEX/DeepScenario/releases/download/deepscenario-toolset/scenario-toolset.tar.gz)* of toolset;
+1. Download the *[lastest version](https://github.com/Simula-COMPLEX/DeepScenario/releases/download/deepscenario-toolset/scenario-toolset.tar.gz)* of the toolset;
 
 2. Install the toolset in your development environment.
 ```python
