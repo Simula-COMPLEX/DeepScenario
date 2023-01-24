@@ -117,7 +117,7 @@ We show *[./greedy-strategy/reward-dto/road1-rain_day-scenario-attributes.csv](h
 
 **Execution** -  This field indicates the ID of the test execution;
 
-**ScenarioID** - This field indicates the ID of the scenario in the scenario dataset. For example, *0_scenario_0* is the 0th scenario collected when executing *execution 0*. In this example, the real scenario file can be located by its *ScenarioID*, which is *[./greedy-strategy/reward-dto/road1-rain_day-scenarios/0_scenario_0.deepscenario](https://github.com/Simula-COMPLEX/DeepScenario/blob/main/deepscenario-dataset/greedy-strategy/reward-dto/road1-rain_day-scenarios/0_scenario_0.deepscenario)*.
+**ScenarioID** - This field indicates the ID of the scenario in the scenario dataset. For example, *0_scenario_0* is the 0th scenario collected when executing *execution 0*. In this example, the real scenario file can be located by its *ScenarioID*, which is *[./greedy-strategy/reward-dto/road1-rain_day-scenarios/0_scenario_0.deepscenario](https://github.com/Simula-COMPLEX/DeepScenario/blob/main/deepscenario-dataset/greedy-strategy/reward-dto/road1-rain_day-scenarios/0_scenario_0.deepscenario)*. *18_scenario_4_pedestrian* is another example showing the *ScenarioID* of a collision scenario, which indicates that the autonomous vehicle collided with a pedestrian. The corresponding scenario file can be located at *[./greedy-strategy/reward-dto/road1-rain_day-scenarios/18_scenario_4_pedestrian.deepscenario](https://github.com/Simula-COMPLEX/DeepScenario/blob/main/deepscenario-dataset/greedy-strategy/reward-dto/road1-rain_day-scenarios/18_scenario_4_pedestrian.deepscenario)*.
 
 **Configuration_API_Description** - This field is a brief description of the configuration REST API used to generated the scenario;
 
