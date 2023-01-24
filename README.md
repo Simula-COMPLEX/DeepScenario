@@ -13,7 +13,7 @@ This repoisitory contains:
 - [DeepScenario Dataset Description](#deepscenario-dataset-description)
   - [Dataset Structure](#dataset-structure)
   - [Fields in Scenario Attribute Files](#fields-in-scenario-attribute-files)
-- [DeepScenario Toolsets](#deepscenario-toolsets)
+- [DeepScenario Toolset](#deepscenario-toolset)
   - [Installation](#installation)
   - [Usage](#usage)
 - [Maintainers](#maintainers)
@@ -133,8 +133,8 @@ We show *[./greedy-strategy/reward-dto/road1-rain_day-scenario-attributes.csv](h
 
 **Attribute[SAC]** - This field is *Speed-At-Collision (SAC)*, which is an attribute that records the speed at which the autonomous vehicle in the scenario collided (if it happened) with the obstacle.
 
-## DeepScenario Toolsets
-The *DeepScenario* toolsets includes *ScenarioCollector* and *ScenarioRunner*, which have been integrated into *[PythonAPI](https://github.com/lgsvl/PythonAPI)* developed by *[SVLSimulator](https://www.svlsimulator.com/)*.
+## DeepScenario Toolset
+The *DeepScenario* toolset includes *ScenarioCollector* and *ScenarioRunner*, which have been integrated into *[PythonAPI](https://github.com/lgsvl/PythonAPI)* developed by *[SVLSimulator](https://www.svlsimulator.com/)*.
 The toolsets have been tested on *[SVLSimulator Version 2021.1](https://github.com/lgsvl/simulator/releases/tag/2021.1)* with running *[Apollo 5.0](https://github.com/ApolloAuto/apollo/releases/tag/v5.0.0)* as the autonomous driving system.
 
 ### Installation
@@ -142,10 +142,6 @@ To view the requirement and installation procedure for running the toolset, plea
 
 ### Usage
 To see detailed instructions of using *ScenarioCollector* and *ScenarioRunner*, please look at [toolset-usage](https://github.com/Simula-COMPLEX/DeepScenario/blob/main/deepscenario-toolset/README.md#usage).
-
-<!-- 
-Also, we provide a [running-example](https://www.bilibili.com/video/BV1DY411W7Vo/) on Bilibili.
--->
 
 <!-- 
 ### Installation
