@@ -4,7 +4,6 @@
 # @Author  : Chengjie
 # @File    : scenario_runner.py
 # @Software: PyCharm
-import datetime
 import json
 import time
 
@@ -78,13 +77,13 @@ class ScenarioRunner:
             'ObjectAction')
         self.operating_environment = self.scenario.getElementsByTagName('Environment')[0]
 
-    def connect_simulator_ads(self, simulator_host='127.0.0.1', simulator_port=8181, bridge_host='127.0.0.1', bridge_port=9090):
+    def connect_simulator_ads(self, simulator_host=None, simulator_port=None, bridge_host=None, bridge_port=None):
         self.simulator_host = lgsvl.wise.SimulatorSettings.simulator_host if simulator_host is None else simulator_host
         self.simulator_port = lgsvl.wise.SimulatorSettings.simulator_port if simulator_port is None else simulator_port
-        self.bridge_host = lgsvl.wise.SimulatorSettings.bridge_host if bridge_host is None else bridge_host
-        self.bridge_port = lgsvl.wise.SimulatorSettings.bridge_port if bridge_port is None else bridge_port
-        self.sim = lgsvl.Simulator(self.env.str("LGSVL__SIMULATOR_HOST", self.simulator_host),
-                                   self.env.int("LGSVL__SIMULATOR_PORT", self.simulator_port))
+        self.bridge_host = bridge_host
+        self.bridge_port = bridge_port
+        self.sim = lgsvl.Simulator(self.env.str("LGSVL__SIMULATOR_HOST", lgsvl.wise.SimulatorSettings.simulator_host),
+                                   self.env.int("LGSVL__SIMULATOR_PORT", lgsvl.wise.SimulatorSettings.simulator_port))
 
         hd_map = lgsvl.wise.DefaultAssets.map_sanfrancisco
         print(self.operating_environment.getElementsByTagName('HDMap')[0].getAttribute('city'))
@@ -150,7 +149,7 @@ class ScenarioRunner:
                                                                         'y': angular_velocity.y,
                                                                         'z': angular_velocity.z}}})
             entities_dict.update({entity.getAttribute('name'): entity_dict})
-        return json.dumps(entities_dict, indent=4)
+        return json.dumps(entities_dict, indent=2)
 
     def get_scene_by_timestep(self, timestep: int):
         """
@@ -215,7 +214,7 @@ class ScenarioRunner:
                                 }})
 
             scene_timestep.update({objectRef: object_dict})
-        return json.dumps(scene_timestep, indent=4)
+        return json.dumps(scene_timestep, indent=2)
 
     def __get_time_stamp(self):
         timeofday = round(self.sim.time_of_day)
@@ -328,15 +327,11 @@ class ScenarioRunner:
                 if agents[i].uid in keys:
                     agents[i].follow(action_dict[agents[i].uid]['wayPoints'])
 
-            agents[0].connect_bridge(self.env.str("LGSVL__AUTOPILOT_0_HOST", str(self.bridge_host)),
+            agents[0].connect_bridge(self.env.str("LGSVL__AUTOPILOT_0_HOST", self.bridge_host),
                                      self.env.int("LGSVL__AUTOPILOT_0_PORT", self.bridge_port))
 
-        env_init = self.operating_environment.getElementsByTagName('EnvironmentInitialization')[0]
-        dt = datetime.datetime.strptime(env_init.getAttribute('dateTime'), "%Y-%m-%d %H:%M:%S")
-        fix_time = bool(env_init.getAttribute('fixTime'))
-        self.sim.set_date_time(datetime.datetime(dt.year, dt.month, dt.day, dt.hour, dt.minute, dt.second), fix_time)
-
-        if mode == 1:
+        # weather = json.loads(s=open('', 'r').read())
+        if agents[0].bridge_connected:
             print('connected to autonomous driving system (Apollo 5.0) successfully, running with Apollo...')
             self.sim.run(len(action_dict[agents[0].uid]['wayPoints']) * timestep)
         else:

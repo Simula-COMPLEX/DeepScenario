@@ -20,26 +20,25 @@ def get_type(class_name):
 
 
 class ScenarioCollector:
-    def __init__(self, city_map='BorregasAve', author='ScenarioCollector'):
+    def __init__(self, city_map='BorregasAve'):
         self.doc = xml.dom.minidom.Document()
         self.story = None
         self.entities = None
         self.storyboard = None
-        self.author = author
         self.city_map = city_map
         self.root = self.doc.createElement('DeepScenario')
 
-    def __initialization(self, datatime='2021-11-27T10:00:00', v_date='2021-7-8', timestamp='1625673600', weatherdataset='None'):
+    def __initialization(self, datatime='2021-11-27T10:00:00', v_date='2021-7-8', timestamp='1625673600', weatherdataset='./Nanjing_2021-7-8.json'):
         fileheader = self.doc.createElement('FileHeader')
         fileheader.setAttribute('simulatorVersion', '2021.01')
-        fileheader.setAttribute('data', datatime)
+        fileheader.setAttribute('datatime', datatime)
         fileheader.setAttribute('description', 'DeepScenario Format')
-        fileheader.setAttribute('author', self.author)
+        fileheader.setAttribute('author', 'DeepCollision')
 
         environment = self.doc.createElement('Environment')
         hdmap = self.doc.createElement('HDMap')
         hdmap.setAttribute('city', self.city_map)
-        realworldeffect = self.doc.createElement('EnvironmentInitialization')
+        realworldeffect = self.doc.createElement('RealWorldWeather')
         realworldeffect.setAttribute('dateTime', v_date)
         realworldeffect.setAttribute('unixTimeStamp', timestamp)
         realworldeffect.setAttribute('fixTime', 'False')

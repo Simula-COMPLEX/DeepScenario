@@ -25,8 +25,8 @@ class TestScenarioToolset(unittest.TestCase):
 
     def test_scenario_runner(self):
         runner = lgsvl.scenariotoolset.ScenarioRunner()
-        runner.load_scenario_file(scenario_filepath_or_buffer='./deepscenario/overtake.deepscenario')
-        runner.connect_simulator_ads(simulator_host='10.211.55.3', simulator_port=8181, bridge_port=9090)
+        runner.load_scenario_file(scenario_filepath_or_buffer='./deepscenario/text.deepscenario')
+        runner.connect_simulator_ads(simulator_port=8181, bridge_port=9090)
 
         runner.run(mode=0)
 
@@ -45,11 +45,8 @@ class TestScenarioToolset(unittest.TestCase):
 
         state = lgsvl.AgentState()
         state.transform = spawns[0]
-        ego = sim.add_agent(env.str("LGSVL__VEHICLE_0", lgsvl.wise.DefaultAssets.ego_lincoln2017mkz_apollo5),
-                            lgsvl.AgentType.EGO, state)
-
-        # ego.connect_bridge(env.str("LGSVL__AUTOPILOT_0_HOST", lgsvl.wise.SimulatorSettings.bridge_host),
-        #                    env.int("LGSVL__AUTOPILOT_0_PORT", lgsvl.wise.SimulatorSettings.bridge_port))
+        sim.add_agent(env.str("LGSVL__VEHICLE_0", lgsvl.wise.DefaultAssets.ego_lincoln2017mkz_apollo5),
+                      lgsvl.AgentType.EGO, state)
 
         state = lgsvl.AgentState()
 
@@ -77,21 +74,15 @@ class TestScenarioToolset(unittest.TestCase):
         # 5.6 m/s is ~20 km/h
         npc2.follow_closest_lane(True, 5.6)
 
-        controllables = sim.get_controllables("signal")
-        control_policy = "green=3;loop"
-        for con in controllables:
-            # Control this traffic light with a new control policy
-            con.control(control_policy)
-
         agents = sim.get_agents()
         sc_collector = lgsvl.scenariotoolset.ScenarioCollector(city_map='BorregasAve')  # BorregasAve, SanFrancisco
         sc_collector.initialize_story(agents, datatime=str(datetime.datetime.now().strftime('%Y-%m-%dT%H:%M:%S')),
                                       v_date=str(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')),
                                       timestamp=int(time.time()), weatherdataset="None")
 
-        for i in range(20):
+        for i in range(10):
             sc_collector.create_story_by_timestamp(i + 1, agents, sim)
             sim.run(0.5)
 
-        sc_collector.save_scenario(0.5, './deepscenario/npc-follow-the-lane.deepscenario')
+        sc_collector.save_scenario(0.5, './test.deepscenario')
 

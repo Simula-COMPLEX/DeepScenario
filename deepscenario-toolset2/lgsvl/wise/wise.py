@@ -8,7 +8,7 @@
 # Settings classes with common variables used in the quickstart and example scripts.
 class SimulatorSettings:
     # IP address of the endpoint running the Simulator. Default value is "127.0.0.1"
-    simulator_host = "127.0.0.1"
+    simulator_host = "10.211.55.3"
 
     # Port used by the Simulator for the Python API connection. Default value is 8181
     simulator_port = 8181
