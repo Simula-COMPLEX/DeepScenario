@@ -1,7 +1,7 @@
 [![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
 # DeepScenario: An Open Driving Scenario Dataset for Autonomous Driving System Testing
 
-> **Dataset avaliability** - To facilitate reviewing *DeepScenario* dataset, reviewers please refer to the corresponding dataset in this repository. We also plan to release the dataset in permanent repositories like Zenodo once it gets accepted.<br/>
+> **Dataset avaliability** - To facilitate reviewing *DeepScenario* dataset, reviewers please refer to the corresponding dataset in this repository. We also plan to release the dataset in a permanent repository, such as in Zenodo, once it is accepted.<br/>
 
 This repoisitory contains:
 
