@@ -1,5 +1,7 @@
 # DeepScenario Toolset
 
+*DeepScenario toolset* is an extension of *[PythonAPI](https://github.com/lgsvl/PythonAPI)* developed by *[SVLSimulator](https://www.svlsimulator.com/)*, for how to use normal functionalities of these APIs to manipulate the simulator, please refer [here](https://www.svlsimulator.com/docs/python-api/python-api/).
+
 # Requirements
 
 * Python 3.6 (suggested) or higher
@@ -26,7 +28,6 @@ pip3 install --user -e .
 
 # Usage
 
-*DeepScenario toolset* is an extension of *[PythonAPI](https://github.com/lgsvl/PythonAPI)* developed by *[SVLSimulator](https://www.svlsimulator.com/)*, for how to use normal functionalities of these APIs, please refer [here](https://www.svlsimulator.com/docs/python-api/python-api/).
 Examples of usage of our toolsets can be found [here](https://github.com/Simula-COMPLEX/DeepScenario/blob/main/deepscenario-toolset/tests/test_scenariotoolset.py). We describe several examples of using *ScenarioCollector* and *ScenarioRunner* as follows.
 
 ## ScenarioCollector
