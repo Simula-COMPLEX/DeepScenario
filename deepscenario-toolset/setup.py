@@ -11,7 +11,7 @@ setup(
     url="https://github.com/lgsvl/PythonAPI",
     packages=["lgsvl", "lgsvl.dreamview", "lgsvl.evaluator", "lgsvl.wise", "lgsvl.scenariotoolset"],
     install_requires=[
-        "websockets==9.1",
+        "websockets==7.0",
         "websocket-client==0.57.0",
         "numpy",
         "environs"
