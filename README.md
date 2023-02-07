@@ -136,7 +136,7 @@ We show *[./greedy-strategy/reward-dto/road1-rain_day-scenario-attributes.csv](h
 **Attribute[SAC]** - This field is *Speed-At-Collision (SAC)*, which is an attribute that records the speed at which the autonomous vehicle in the scenario collided (if it happened) with the obstacle.
 
 ## DeepScenario Toolset
-The *DeepScenario* toolset includes *ScenarioCollector* and *ScenarioRunner*, which has been integrated into *[PythonAPI](https://github.com/lgsvl/PythonAPI)* developed by *[SVLSimulator](https://www.svlsimulator.com/)*.
+The *DeepScenario* toolset includes *ScenarioCollector* and *ScenarioRunner*, which has been integrated into *[PythonAPI](https://github.com/lgsvl/PythonAPI)* developed by *[SVLSimulator](https://github.com/lgsvl)*.
 The toolset has been tested on *[SVLSimulator Version 2021.1](https://github.com/lgsvl/simulator/releases/tag/2021.1)* with running *[Apollo 5.0](https://github.com/ApolloAuto/apollo/releases/tag/v5.0.0)* as the autonomous driving system.
 
 ### Installation
