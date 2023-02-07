@@ -1,6 +1,6 @@
 # DeepScenario Toolset
 
-*DeepScenario toolset* is an extension of *[PythonAPI](https://github.com/lgsvl/PythonAPI)* developed by *[SVLSimulator](https://www.svlsimulator.com/)*, for how to use normal functionalities of these APIs to manipulate the simulator, please refer [here](https://www.svlsimulator.com/docs/python-api/python-api/).
+*DeepScenario toolset* is an extension of *[PythonAPI](https://github.com/lgsvl/PythonAPI)* developed by *[SVLSimulator](https://github.com/lgsvl)*, for how to use normal functionalities of these APIs to manipulate the simulator, please refer [here](https://github.com/lgsvl/simulator/tree/release-2021.1).
 
 # Requirements
 
