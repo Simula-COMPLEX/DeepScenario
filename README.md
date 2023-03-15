@@ -3,7 +3,7 @@
 [![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
 # DeepScenario: An Open Driving Scenario Dataset for Autonomous Driving System Testing
 
-> **Dataset avaliability** - The dataset is available in the corresponding dataset in this repository. The dataset is also avilable in Zenodo, which is a permanent repository: https://doi.org/10.5281/zenodo.7714194.<br/>
+> **Dataset avaliability** - The dataset is available in the corresponding data in this repository. The dataset is also avilable in Zenodo with the identifier data DOI: https://doi.org/10.5281/zenodo.7714194.<br/>
 
 This repoisitory contains:
 
