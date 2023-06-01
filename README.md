@@ -5,7 +5,7 @@
 
 > **Dataset avaliability** - The dataset is available in the corresponding data in this repository. The dataset is also avilable in Zenodo with the identifier data DOI: https://doi.org/10.5281/zenodo.7714194.<br/>
 
-> **Paper avaliability** - The dataset is accepted for the 20th International Conference on Mining Software Repositories (MSR 2023). The paper is [publicy avaliabile](https://chengjie-lu.github.io/files/MSR2023_Scenario_Dataset___Chengjie.pdf).<br/>
+> **Paper avaliability** - The dataset is accepted for the 20th International Conference on Mining Software Repositories (MSR 2023). The paper is [publicly available](https://chengjie-lu.github.io/files/MSR2023_Scenario_Dataset___Chengjie.pdf).<br/>
 
 > **Citation of the dataset** - Chengjie Lu, Tao Yue, & Shaukat Ali. (2023). DeepScenario: An Open Driving Scenario Dataset for Autonomous Driving System Testing (deepscenario-dataset-v0.0.1) [Data set]. Zenodo. https://doi.org/10.5281/zenodo.7714194<br/>
 
