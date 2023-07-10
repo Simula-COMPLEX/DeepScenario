@@ -148,12 +148,18 @@ The toolset has been tested on *[SVLSimulator Version 2021.1](https://github.com
 To view the requirement and installation procedure for running the toolset, please look at [toolset-installation](https://github.com/Simula-COMPLEX/DeepScenario/tree/main/deepscenario-toolset#requirements).
 
 ### Usage
-To see detailed instructions of using *ScenarioCollector* and *ScenarioRunner*, please look at [toolset-usage](https://github.com/Simula-COMPLEX/DeepScenario/blob/main/deepscenario-toolset/README.md#usage).
+To see detailed instructions for using *ScenarioCollector* and *ScenarioRunner*, please look at [toolset-usage](https://github.com/Simula-COMPLEX/DeepScenario/blob/main/deepscenario-toolset/README.md#usage).
 
 ## Related Efforts
 **[DeepCollision](https://github.com/simplexity-lab/DeepCollision)** is an open-source environment configuration framework, which generates critical driving scenarios and tests an ADS by configuring its operating environment. 
 
 More details about the framework are available in the paper: Lu, Chengjie, et al. "Learning Configurations of Operating Environment of Autonomous Vehicles to Maximize their Collisions," in IEEE Transactions on Software Engineering, vol. 49, no. 1, pp. 384-402, 1 Jan. 2023, https://doi.org/10.1109/TSE.2022.3150788.
+
+## People
+- Chengjie Lu https://www.simula.no/people/chengjielu
+- Tao Yue https://www.simula.no/people/tao
+- Shaukat Ali https://www.simula.no/people/shaukat
+
 
 ## Maintainers
 [@ChengjieLu](https://github.com/chengjie-lu)
