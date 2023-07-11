@@ -23,6 +23,7 @@ This repoisitory contains:
   - [Installation](#installation)
   - [Usage](#usage)
 - [Related Efforts](#related-efforts)
+- [People](#people)
 - [Maintainers](#maintainers)
 <!--
   - [Installation](#installation)
