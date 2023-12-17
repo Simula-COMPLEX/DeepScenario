@@ -4,7 +4,6 @@
 # @Author  : Chengjie
 # @File    : test_scenariotoolset.py
 # @Software: PyCharm
-import os
 import time
 import unittest
 import lgsvl
@@ -15,13 +14,15 @@ import datetime
 class TestScenarioToolset(unittest.TestCase):
     def test_get_entities(self):
         runner = lgsvl.scenariotoolset.ScenarioRunner()
-        runner.load_scenario_file(scenario_filepath_or_buffer='./deepscenario/rear_end_collision.deepscenario')
+        runner.load_scenario_file(scenario_filepath_or_buffer='../deepscenario-dataset/rl_based-strategy/reward-jerk/road4-rain_day-scenarios/5_scenario_10_npc_vehicle.deepscenario')
         print(runner.get_entities_info())
 
     def test_get_scene_by_timestep(self):
         runner = lgsvl.scenariotoolset.ScenarioRunner()
-        runner.load_scenario_file(scenario_filepath_or_buffer='./deepscenario/rear_end_collision.deepscenario')
-        print(runner.get_scene_by_timestep(timestep=21))
+        # runner.load_scenario_file(scenario_filepath_or_buffer='../deepscenario-dataset/rl_based-strategy/reward-jerk/road4-rain_day-scenarios/5_scenario_10_npc_vehicle.deepscenario')
+        runner.load_scenario_file(scenario_filepath_or_buffer='./save_path.deepscenario')
+
+        print(runner.get_scene_by_timestep(timestep=2))
 
     def test_scenario_runner(self):
         runner = lgsvl.scenariotoolset.ScenarioRunner()

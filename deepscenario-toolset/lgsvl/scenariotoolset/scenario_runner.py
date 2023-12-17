@@ -47,6 +47,8 @@ def on_collision(agent1, agent2, contact):
 
 class ScenarioRunner:
     def __init__(self):
+        self.story = None
+        self.doc = None
         self.sim = None
         self.bridge_port = None
         self.bridge_host = None
@@ -69,16 +71,19 @@ class ScenarioRunner:
 
     def load_scenario_file(self, scenario_filepath_or_buffer):
         self.scenario_file = scenario_filepath_or_buffer
-        self.scenario = xml.dom.minidom.parse("./{}".format(self.scenario_file)).documentElement
+        self.doc = xml.dom.minidom.parse("./{}".format(self.scenario_file))
+        self.scenario = self.doc.documentElement
         self.entities = self.scenario.getElementsByTagName('Entities')[0].getElementsByTagName('ScenarioObject')
         self.story_board = self.scenario.getElementsByTagName('StoryBoard')
         self.entities_initialization = self.story_board[0].getElementsByTagName('Initialization')[
             0].getElementsByTagName('ObjectInitialization')
+        self.story = self.story_board[0].getElementsByTagName('Story')[0]
         self.entities_actions = self.story_board[0].getElementsByTagName('Story')[0].getElementsByTagName(
             'ObjectAction')
         self.operating_environment = self.scenario.getElementsByTagName('Environment')[0]
 
-    def connect_simulator_ads(self, simulator_host='127.0.0.1', simulator_port=8181, bridge_host='127.0.0.1', bridge_port=9090):
+    def connect_simulator_ads(self, simulator_host='127.0.0.1', simulator_port=8181, bridge_host='127.0.0.1',
+                              bridge_port=9090):
         self.simulator_host = lgsvl.wise.SimulatorSettings.simulator_host if simulator_host is None else simulator_host
         self.simulator_port = lgsvl.wise.SimulatorSettings.simulator_port if simulator_port is None else simulator_port
         self.bridge_host = lgsvl.wise.SimulatorSettings.bridge_host if bridge_host is None else bridge_host
@@ -97,6 +102,17 @@ class ScenarioRunner:
             self.sim.reset()
         else:
             self.sim.load(hd_map)
+
+    def __weather_data_generation(self, weather_database_path=None):
+        if weather_database_path is None:
+            database_name = self.operating_environment.getElementsByTagName('OpenWeatherDatabase')[0].getAttribute(
+                'filepath')
+            if database_name == 'None':
+                return
+            else:
+                weather_database_path = './{}.json'.format(database_name)
+
+        return weather_database_path
 
     def __get_entity_info(self, entity):
         """
@@ -136,12 +152,77 @@ class ScenarioRunner:
 
         return entity_dict, position, rotation, velocity, angular_velocity
 
+    def reset_entities_names(self):
+        names = []
+        count = 1
+        for entity in self.entities:
+            if entity.getAttribute('name') in names:
+                entity.setAttribute('name', 'Pedestrian' + str(count))
+                count += 1
+            else:
+                names.append(entity.getAttribute('name'))
+        return names
+
+    def reset_initialization_names(self):
+        names = []
+        count = 1
+        for objectInitial in self.entities_initialization:
+            if objectInitial.getAttribute('objectRef') in names:
+                objectInitial.setAttribute('objectRef', 'Pedestrian' + str(count))
+                count += 1
+            else:
+                names.append(objectInitial.getAttribute('objectRef'))
+        return names
+
+    def reset_actions(self):
+        names = []
+        count_p = 0
+        for entity in self.entities:
+            if entity.getAttribute('name').__contains__('Pedestrian'):
+                count_p += 1
+            names.append(entity.getAttribute('name'))
+
+        if count_p <= 1:
+            return
+
+        print('resetting ...')
+
+        wayPoints = None
+        oA = None
+        for objectAction in self.entities_actions:
+            if objectAction.getAttribute('name').__contains__('Pedestrian'):
+                objectRef = objectAction.getElementsByTagName('objectRef')[0].getAttribute('objectRef')
+                wayPoints = objectAction.getElementsByTagName('WayPoint')
+                # oA = objectAction
+                para = objectAction.parentNode
+                self.story.removeChild(objectAction)
+                break
+
+        # print(len(wayPoints))
+
+        for i in range(count_p):
+            action = self.doc.createElement('ObjectAction')
+            action.setAttribute('name', 'Act_Pedestrian' + str(i))
+            object_ref = self.doc.createElement('objectRef')
+            object_ref.setAttribute('objectRef', 'Act_Pedestrian' + str(i))
+            # object_ref.toprettyxml(newl="\t\n\n")
+            action.appendChild(object_ref)
+
+            for j in range(6):
+                wp = wayPoints[i + j * count_p]
+                # wp.toprettyxml(newl="\r\n\n")
+                action.appendChild(wp)
+            # action.toprettyxml(newl="\r\n\n")
+            self.story.appendChild(action)
+        return
+
     def get_entities_info(self):
         """
         return attributes and initial states for all entities
         """
         entities_dict = {}
         for entity in self.entities:
+            print(entity.getAttribute('name'))
             entity_dict, position, rotation, velocity, angular_velocity = self.__get_entity_info(entity)
             entity_dict.update({'initialization': {'position': {'x': position.x, 'y': position.y, 'z': position.z},
                                                    'rotation': {'x': rotation.x, 'y': rotation.y, 'z': rotation.z},
