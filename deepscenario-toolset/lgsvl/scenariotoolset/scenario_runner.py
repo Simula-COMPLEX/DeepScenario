@@ -204,7 +204,7 @@ class ScenarioRunner:
             action = self.doc.createElement('ObjectAction')
             action.setAttribute('name', 'Act_Pedestrian' + str(i))
             object_ref = self.doc.createElement('objectRef')
-            object_ref.setAttribute('objectRef', 'Act_Pedestrian' + str(i))
+            object_ref.setAttribute('objectRef', 'Pedestrian' + str(i))
             # object_ref.toprettyxml(newl="\t\n\n")
             action.appendChild(object_ref)
 
